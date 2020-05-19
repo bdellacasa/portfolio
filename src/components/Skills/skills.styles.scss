@@ -1,0 +1,15 @@
+@media (prefers-reduced-motion: no-preference) {
+    .skill-logo {
+      animation: skill-logo-spin infinite 5s ease;
+    }
+  }
+  
+@keyframes skill-logo-spin {
+    from {
+        transform: rotatey(0deg);
+    }
+    to {
+        transform: rotatey(360deg);
+    }
+}
+  
