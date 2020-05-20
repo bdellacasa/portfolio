@@ -4,17 +4,22 @@ import Grid from '@material-ui/core/Grid';
 import Data from '../../Data';
 import './about.styles.scss'
 
-const screenDependantStyle = window.matchMedia("(max-width: 508px)").matches ? {
+const screenDependantStyle = window.matchMedia("(max-width: 410px)").matches ? {
         container: { marginLeft: '-11vw' },
         paddingLeftIcon : { paddingLeft: '12vw' },
         iconSize: { width: '250px', height: '150px' },
         aboutName: { paddingTop: '20vh', width: '100vw' }
+    } : window.matchMedia("(max-width: 720px)").matches ? {
+        paddingLeftIcon: { paddingLeft: '6vw' },
+        iconSize: {  width: '80vw', height: '30vh' },
+        aboutName: {  paddingTop: '30vh', width: '70vw' }
     } : {
         paddingLeftContainer: { marginLeft: 0 },
         paddingLeftIcon: { paddingLeft: '10vw' },
         iconSize: {  width: '30vw', height: '20vh' },
         aboutName: {  paddingTop: '6vh', width: '40vw' }
-    }
+    };
+    
 
 const About = () => {
     return(

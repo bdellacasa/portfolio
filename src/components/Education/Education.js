@@ -4,9 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import './education.styles.scss';
 import Data from '../../Data';
 
-const screenDependantStyle = window.matchMedia("(max-width: 508px)").matches ? {
+const screenDependantStyle = window.matchMedia("(max-width: 720px)").matches ? {
     paddingLeft: { paddingLeft: '0vw' },
-    educationContainer: { marginLeft: '-8vw' },
+    educationContainer: window.matchMedia("(max-width: 410px)").matches ? { marginLeft: '-10vw' } : { marginLeft: '0vw' },
     educationCollege: { width: '50vw', paddingTop: 0, paddingLeft: '25vw' }
 } : {
     paddingLeft: { paddingLeft: '6.5vw' },

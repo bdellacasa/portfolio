@@ -6,14 +6,14 @@ import MailIcon from '@material-ui/icons/Mail';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
-const screenDependant = window.matchMedia("(max-width: 508px)").matches ? {
-    contactContainer: { marginLeft: '-12vw' },
+const screenDependant = window.matchMedia("(max-width: 720px)").matches ? {
     contactLinkedinText: { whiteSpace: 'pre-wrap', overflowWrap: 'break-word' },
     variant: "subtitle1",
     xs: 12,
-    xsL: 10
-} : {
-    contactContainer: { marginLeft: 0 },
+    xsL: 10,
+    contactContainer: window.matchMedia("(max-width: 410px)").matches ? { marginLeft: '-12vw' } : { marginLeft: '0vw' }
+} : { 
+    contactContainer: { marginLeft: 0 },    
     contactLinkedinText: { whiteSpace: 'nowrap', overflowWrap: 'normal' },
     variant: "h5",
     xs: 4,
