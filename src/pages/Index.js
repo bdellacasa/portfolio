@@ -6,6 +6,7 @@ import Education from '../components/Education/Education';
 import Experience from '../components/Experience/Experience';
 import Skills from '../components/Skills/Skills';
 import Contact from '../components/Contact/Contact';
+import AppBar from '../components/AppBar/AppBar';
 
 const Index = (props) => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -36,17 +37,19 @@ const Index = (props) => {
         setContent(content);
     }
 
-    const contentMarginLeft = window.matchMedia("(max-width: 508px)").matches ? 
+    const minorScreens = window.matchMedia("(max-width: 720px)").matches;
+    const screenDependantStyles = minorScreens ? 
         { 
-            'marginLeft': menuOpen ? '50vw' : '-70vw'
+            contentContainer:  window.matchMedia("(max-width: 410px)").matches ? { marginLeft: '-85vw' } : { marginLeft: '-95vw' }
         } : {
-            'marginLeft': menuOpen ? '4vw' : '-10vw' 
+            contentContainer: menuOpen ? { marginLeft: '4vw' } : { marginLeft: '-10vw' }
         } 
 
     return (
         <div style={{ display: 'flex', background: background, maxWidth: '100vw', minHeight: '100vh'}}>
-            <Menu open={value => setMenuOpen(value)} update={(color, content) => updatePage(color, content)} />
-            <div className={"index-content-container"} style={contentMarginLeft}>
+            {!minorScreens && <Menu open={value => setMenuOpen(value)} update={(color, content) => updatePage(color, content)} />}
+            {minorScreens && <AppBar update={(color, content) => updatePage(color, content)}/>}
+            <div className={"index-content-container"} style={screenDependantStyles.contentContainer}>
                 {renderContent()}
             </div>
         </div>
