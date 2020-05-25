@@ -1,6 +1,6 @@
-# Portfolio
+# Portfolio - Web CV
 
-Portfolio template made with ReactJS and [Material-UI](https://material-ui.com/es/)
+Web CV template made with ReactJS and [Material-UI](https://material-ui.com/es/)
 
 ## Installation
 
